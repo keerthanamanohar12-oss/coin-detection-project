@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import cv2
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static", template_folder="templates")
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -43,12 +43,12 @@ def detect_coins():
         maxRadius=200
     )
 
+
     coin_count = 0
 
     if circles is not None:
         coin_count = len(circles[0])
-        print("Detected circles:",circles)
-    
+
     return jsonify({
         "count": coin_count
     })
