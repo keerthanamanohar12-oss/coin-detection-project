@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Detection and Counting</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Coin Detection and Counting</h1>
+
+        <p class="subtitle">
+            Upload an image to detect and count coins
+        </p>
+
+        <div class="upload-box">
+
+            <input type="file" id="imageInput" accept="image/*">
+
+            <button onclick="detectCoins()">
+                Detect Coins
+            </button>
+
+        </div>
+
+        <div id="result">
+            <p>Detected Coins: <span id="coinCount">0</span></p>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
